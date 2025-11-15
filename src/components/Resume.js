@@ -123,7 +123,7 @@ function Resume() {
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             <a 
-              href="https://linkedin.com/in/bhagyapatel305" 
+              href="https://www.linkedin.com/in/bhagyapatel05" 
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"

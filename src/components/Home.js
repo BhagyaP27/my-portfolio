@@ -8,7 +8,7 @@ function Home() {
         {/* Hero Section */}
         <div className="text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-            Hi, I'm <span className="text-blue-600">Your Name</span>
+            Hi, I'm <span className="text-blue-600">Bhagya Patel</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 mb-4">
             | Problem Solver | Tech Enthusiast

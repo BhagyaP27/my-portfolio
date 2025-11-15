@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function Contact() {
   const [formData, setFormData] = useState({
     name: 'Bhagya Patel',
-    email: 'bhagyapatel2077@gmail.com',
+    email: 'bhagyapatel000@gmail.com',
     message: 'You have an email'
   });
 
@@ -118,7 +118,7 @@ function Contact() {
                   <div>
                     <p className="font-semibold text-gray-900">Email</p>
                     <a href="mailto:your.email@example.com" className="text-blue-600 hover:underline">
-                      your.email@example.com
+                      bhagyapatel000@gmail.com
                     </a>
                   </div>
                 </div>
@@ -130,7 +130,7 @@ function Contact() {
                   </svg>
                   <div>
                     <p className="font-semibold text-gray-900">Location</p>
-                    <p className="text-gray-600">City, Country</p>
+                    <p className="text-gray-600">Ottawa, Canada</p>
                   </div>
                 </div>
               </div>

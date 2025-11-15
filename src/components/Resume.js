@@ -77,7 +77,6 @@ function Resume() {
       "JavaScript",
       "Excel (data analysis)",
       "Raspberry Pi programming",
-      "PuTTY/WinSCP",
       "Unity"
     ],
     "Programming Languages": [
@@ -94,6 +93,7 @@ function Resume() {
       "pandas",
       "NumPy",
       "Scikit-learn",
+      "Pytorch",
       "K-Means clustering",
       "PCA",
       "Logistic Regression",
@@ -166,7 +166,7 @@ function Resume() {
         {/* Skills */}
         <section className="mb-12">
           <h2 className="text-3xl font-bold mb-6 text-gray-900 border-b-2 border-blue-600 pb-2">
-            Skills & Accomplishments
+            Skills
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {Object.entries(skills).map(([category, skillList]) => (

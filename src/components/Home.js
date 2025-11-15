@@ -38,13 +38,15 @@ function Home() {
         <div className="mt-20">
           <h2 className="text-3xl font-bold text-center mb-10 text-gray-900">Skills & Technologies</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['React', 'Node.js', 'JavaScript', 'Python', 'MongoDB', 'C', 'C#', 'Git',].map((skill) => (
+            {['React', 'Node.js', 'JavaScript','Java' ,'Python','Pytorch','Bash', 'MongoDB', 'C','C++' ,'C#', 'Git',].map((skill) => (
               <div key={skill} className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition transform hover:-translate-y-1">
                 <p className="font-semibold text-gray-800 text-lg">{skill}</p>
               </div>
             ))}
           </div>
         </div>
+
+
 
         {/* About Preview */}
         <div className="mt-20 bg-white rounded-lg shadow-xl p-8 md:p-12">

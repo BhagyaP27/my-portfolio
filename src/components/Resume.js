@@ -117,10 +117,9 @@ function Resume() {
           <h1 className="text-4xl md:text-5xl font-bold mb-2 text-gray-900">Bhagya Patel</h1>
           <p className="text-xl text-gray-700 mb-4">Software Engineering Student</p>
           <div className="flex flex-wrap justify-center gap-4 text-gray-600 mb-6">
-            <a href="mailto:bhagyapatel2077@gmail.com" className="hover:text-blue-600">
-              📧 bhagyapatel2077@gmail.com
+            <a href="mailto:bhagyapatel000@gmail.com" className="hover:text-blue-600">
+              📧 bhagyapatel000@gmail.com
             </a>
-            <span>📱 +1-613-559-3233</span>
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             <a 

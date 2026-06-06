@@ -7,7 +7,7 @@ function Resume() {
       school: "Carleton University",
       location: "Ottawa, ON",
       year: "Sept. 2023 - Apr. 2028 (Expected)",
-      gpa: "GPA: 8.5/12 (B)",
+      //gpa: "GPA: 8.5/12 (B)",
       description: ""
     }
   ];

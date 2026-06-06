@@ -1,8 +1,10 @@
+// src/data/blogData.js
 export const blogPosts = [
     {
         id: 1,
         title: "Learning Transformers: A Beginner's Guide",
         date: "November 14, 2025",
+        coverImage: "/images/blog/transformers-guide.jpg", // Add your image path
         excerpt: "Transformers have revolutionized the field of Natural Language Processing (NLP) and serve as the backbone for modern LLMs. In this post, we break down the attention mechanism and architecture without the complex math.",
         content: `Transformers completely changed how machines understand human language. Before they arrived in 2017 via the famous 'Attention Is All You Need' paper, sequential models like RNNs and LSTMs processed text word-by-word. This was slow and terrible for long sentences.
 
@@ -20,6 +22,7 @@ Today, models like GPT, BERT, and Claude rely entirely on scaled-up versions of 
         id: 2,
         title: "My Experience Learning a RAG Doc Reader",
         date: "December 5, 2025",
+        coverImage: "/images/blog/rag-faiss.jpg", // Add your image path
         excerpt: "Building a Retrieval-Augmented Generation (RAG) pipeline taught me how to bridge the gap between static AI models and private data. Here is how I overcame vector search bottlenecks by moving from ChromaDB to FAISS.",
         content: `Standard Large Language Models are amazing, but they suffer from two major flaws: they hallucinate facts when they don't know the answer, and their knowledge cuts off at their training date. To fix this for a portfolio project, I built a RAG (Retrieval-Augmented Generation) Document Reader. 
 

@@ -17,22 +17,5 @@ The biggest obstacle was resolving token ambiguity when handling dense regular e
         image: "/images/projects/bash-agent-pytorch.png", // Paths mapped to public/ directory
         github: "https://github.com/BhagyaP27/bash-agent-pytorch",
         demo: "" // Leave blank if there's no live site
-    },
-    {
-        id: 2,
-        title: "AI-Resume-Builder",
-        description: "An AI-powered web application that helps users build and optimize professional resumes quickly.",
-        content: `### Features & Capabilities
-A tool designed to dynamically construct and target resumes for specific job descriptions.
-
-### What it does
-1. **Dynamic Tailwind Templates:** Renders highly polished, ATS-optimized layouts on the fly.
-2. **Contextual Tailoring:** Matches user skill history blocks directly against scraped job requirements to suggest optimal structural emphasis.
-
-Built as an exploration of building modular frontend forms that sync state seamlessly with AI microservices.`,
-        technologies: ["React", "Node.js", "TailwindCSS", "OpenAI API"],
-        image: "/images/projects/AI-Resume-Builder.png",
-        github: "",
-        demo: ""
     }
 ];

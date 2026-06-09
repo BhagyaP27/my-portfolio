@@ -5,147 +5,211 @@ import { projects } from '../data/projectData';
 function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
-  // Expanded Markdown Detail View
   if (selectedProject) {
     return (
-      <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-3xl mx-auto px-4">
-          <button 
+      <div style={{ minHeight: '100vh', background: '#080d1a', padding: '3rem 1.5rem' }}>
+        <div style={{ maxWidth: '780px', margin: '0 auto' }}>
+          <button
             onClick={() => setSelectedProject(null)}
-            className="mb-6 text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-2 transition-colors"
+            style={{
+              background: 'none',
+              border: 'none',
+              color: '#38bdf8',
+              fontSize: '0.875rem',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              marginBottom: '2rem',
+              fontFamily: "'JetBrains Mono', monospace",
+              padding: 0,
+            }}
           >
-            ← Back to all projects
+            ← Back to projects
           </button>
-          
-          <article className="bg-white rounded-2xl shadow-md overflow-hidden p-6 md:p-10">
+
+          <div className="card-glass" style={{ padding: '2.5rem' }}>
             {selectedProject.image && (
-              <img 
-                src={selectedProject.image} 
-                alt={selectedProject.title} 
-                className="w-full h-64 md:h-96 object-cover rounded-xl mb-8 border border-gray-100"
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                style={{
+                  width: '100%',
+                  height: '280px',
+                  objectFit: 'cover',
+                  borderRadius: '8px',
+                  marginBottom: '2rem',
+                  border: '1px solid rgba(56,189,248,0.1)',
+                }}
               />
             )}
 
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 tracking-tight">
+            <h1 style={{
+              fontSize: '1.8rem',
+              fontWeight: 700,
+              color: '#e2e8f0',
+              marginBottom: '1rem',
+              fontFamily: "'JetBrains Mono', monospace",
+            }}>
               {selectedProject.title}
             </h1>
-            
-            <div className="flex flex-wrap gap-2 mb-6">
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.5rem' }}>
               {selectedProject.technologies.map((tech) => (
-                <span 
-                  key={tech}
-                  className="bg-blue-50 text-blue-700 text-xs font-medium px-3 py-1 rounded-full border border-blue-100"
-                >
-                  {tech}
-                </span>
+                <span key={tech} className="tag-pill">{tech}</span>
               ))}
             </div>
 
-            <p className="text-lg text-gray-600 italic mb-8 border-l-4 border-blue-500 pl-4">
+            <p style={{
+              color: '#94a3b8',
+              fontSize: '1rem',
+              lineHeight: 1.7,
+              borderLeft: '3px solid #38bdf8',
+              paddingLeft: '1rem',
+              marginBottom: '1.5rem',
+            }}>
               {selectedProject.description}
             </p>
 
-            {/* Links Block */}
-            <div className="flex gap-4 mb-8 bg-gray-50 p-4 rounded-xl">
+            <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '2rem' }}>
               {selectedProject.github && (
-                <a 
-                  href={selectedProject.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition"
-                >
-                  View Code on GitHub
+                <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" style={{
+                  background: '#1e293b',
+                  color: '#e2e8f0',
+                  padding: '0.5rem 1.25rem',
+                  borderRadius: '6px',
+                  fontSize: '0.8rem',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  border: '1px solid rgba(56,189,248,0.15)',
+                  fontFamily: "'JetBrains Mono', monospace",
+                }}>
+                  GitHub →
                 </a>
               )}
               {selectedProject.demo && (
-                <a 
-                  href={selectedProject.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-500 transition"
-                >
-                  Live Demo →
+                <a href={selectedProject.demo} target="_blank" rel="noopener noreferrer" style={{
+                  background: '#38bdf8',
+                  color: '#080d1a',
+                  padding: '0.5rem 1.25rem',
+                  borderRadius: '6px',
+                  fontSize: '0.8rem',
+                  fontWeight: 700,
+                  textDecoration: 'none',
+                }}>
+                  Live Demo ↗
                 </a>
               )}
             </div>
-            
-            {/* Project Markdown Body */}
-            <div className="text-gray-800 leading-relaxed space-y-4">
+
+            <div style={{ color: '#94a3b8', lineHeight: 1.8 }}>
               <ReactMarkdown
                 components={{
-                  h3: ({ node, ...props }) => <h3 className="text-xl font-bold text-gray-900 mt-6 mb-2" {...props} />,
-                  p: ({ node, ...props }) => <p className="text-gray-700 mb-4" {...props} />,
-                  ul: ({ node, ...props }) => <ul className="list-disc list-inside pl-4 mb-4 space-y-1 text-gray-700" {...props} />,
-                  ol: ({ node, ...props }) => <ol className="list-decimal list-inside pl-4 mb-4 space-y-1 text-gray-700" {...props} />,
-                  li: ({ node, ...props }) => <li className="mb-1" {...props} />,
-                  strong: ({ node, ...props }) => <strong className="font-semibold text-gray-900" {...props} />,
+                  h3: ({ node, ...props }) => <h3 style={{ color: '#e2e8f0', fontWeight: 700, marginTop: '1.5rem', marginBottom: '0.5rem', fontSize: '1.1rem' }} {...props} />,
+                  p: ({ node, ...props }) => <p style={{ color: '#94a3b8', marginBottom: '1rem' }} {...props} />,
+                  ul: ({ node, ...props }) => <ul style={{ paddingLeft: '1.5rem', marginBottom: '1rem', color: '#94a3b8' }} {...props} />,
+                  li: ({ node, ...props }) => <li style={{ marginBottom: '0.4rem' }} {...props} />,
+                  strong: ({ node, ...props }) => <strong style={{ color: '#e2e8f0', fontWeight: 600 }} {...props} />,
                   code: ({ node, inline, ...props }) => (
-                    <code className="bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-sm font-mono" {...props} />
+                    <code style={{
+                      background: '#1e293b',
+                      color: '#7dd3fc',
+                      padding: '2px 6px',
+                      borderRadius: '4px',
+                      fontSize: '0.85em',
+                      fontFamily: "'JetBrains Mono', monospace",
+                    }} {...props} />
                   )
                 }}
               >
                 {selectedProject.content}
               </ReactMarkdown>
             </div>
-          </article>
+          </div>
         </div>
       </div>
     );
   }
 
-  // Grid Grid View
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 text-gray-900 tracking-tight">
-          My Projects
+    <div style={{ minHeight: '100vh', background: '#080d1a', padding: '3rem 1.5rem' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <p className="section-label">Work</p>
+        <h1 style={{
+          fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
+          fontWeight: 800,
+          color: '#e2e8f0',
+          marginBottom: '0.5rem',
+          letterSpacing: '-0.02em',
+        }}>
+          Projects
         </h1>
-        <p className="text-center text-gray-600 mb-12 text-lg">
-          Here are some of my recent works and side projects
+        <p style={{ color: '#64748b', marginBottom: '3rem', fontSize: '0.95rem' }}>
+          A selection of things I've built.
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.25rem' }}>
           {projects.map((project) => (
-            <div 
-              key={project.id} 
-              className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col group"
+            <div
+              key={project.id}
+              className="card-glass"
+              style={{ cursor: 'pointer', overflow: 'hidden' }}
               onClick={() => setSelectedProject(project)}
             >
-              <div className="relative overflow-hidden h-48 bg-gray-100 border-b border-gray-100">
+              <div style={{
+                height: '160px',
+                background: 'linear-gradient(135deg, #0f1629 0%, #1e293b 100%)',
+                overflow: 'hidden',
+                borderBottom: '1px solid rgba(56,189,248,0.08)',
+              }}>
                 {project.image ? (
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85 }}
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm font-mono">
-                    No preview image
+                  <div style={{
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    color: '#334155',
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: '0.75rem',
+                  }}>
+                    no preview
                   </div>
                 )}
               </div>
-              
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-blue-600 transition-colors">
+
+              <div style={{ padding: '1.25rem' }}>
+                <h3 style={{
+                  fontSize: '1rem',
+                  fontWeight: 700,
+                  color: '#e2e8f0',
+                  marginBottom: '0.5rem',
+                  fontFamily: "'JetBrains Mono', monospace",
+                }}>
                   {project.title}
                 </h3>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+                <p style={{
+                  color: '#64748b',
+                  fontSize: '0.825rem',
+                  lineHeight: 1.6,
+                  marginBottom: '1rem',
+                  display: '-webkit-box',
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                }}>
                   {project.description}
                 </p>
-                
-                <div className="flex flex-wrap gap-1.5 mb-5">
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
                   {project.technologies.map((tech) => (
-                    <span 
-                      key={tech}
-                      className="bg-gray-100 text-gray-600 text-xs px-2.5 py-0.5 rounded-full"
-                    >
-                      {tech}
-                    </span>
+                    <span key={tech} className="tag-pill">{tech}</span>
                   ))}
-                </div>
-
-                <div className="flex gap-4 pt-2 border-t border-gray-50 text-sm font-semibold text-blue-600">
-                  <span>View Details →</span>
                 </div>
               </div>
             </div>

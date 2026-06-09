@@ -3,12 +3,10 @@ import React from 'react';
 function Resume() {
   const education = [
     {
-      degree: "Bachelor of Engineering - Software Engineering (Co-op Option)",
+      degree: "Bachelor of Engineering — Software Engineering (Co-op)",
       school: "Carleton University",
       location: "Ottawa, ON",
-      year: "Sept. 2023 - Apr. 2028 (Expected)",
-      //gpa: "GPA: 8.5/12 (B)",
-      description: ""
+      year: "Sept. 2023 – Apr. 2028 (Expected)",
     }
   ];
 
@@ -17,7 +15,7 @@ function Resume() {
       title: "Grocery Worker",
       company: "Food Basics",
       location: "Pembroke, ON",
-      period: "Mar. 2023 - July 2023",
+      period: "Mar. 2023 – July 2023",
       responsibilities: [
         "Organized products, handled multiple departments, and ensured scheduled tasks were completed",
         "Assisted customers by answering questions and providing support"
@@ -27,7 +25,7 @@ function Resume() {
       title: "Sandwich Artist",
       company: "Subway",
       location: "Pembroke, ON",
-      period: "June 2019 - Jan 2020",
+      period: "June 2019 – Jan 2020",
       responsibilities: [
         "Prepared sandwiches as per order and handled cash transactions",
         "Reviewed and organized food material stock"
@@ -37,7 +35,7 @@ function Resume() {
       title: "Library Staff",
       company: "Pembroke Public Library",
       location: "Pembroke, ON",
-      period: "June 2019 - Aug 2019",
+      period: "June 2019 – Aug 2019",
       responsibilities: [
         "Organized books in the database to improve accessibility",
         "Assisted in community events and helped visitors find resources"
@@ -48,138 +46,102 @@ function Resume() {
   const projects = [
     {
       title: "Customer Personality Segmentation",
-      description: "Performed end-to-end customer segmentation analysis to group customers based on purchasing behavior and demographics",
-      technologies: ["Python", "pandas", "NumPy", "Scikit-learn", "K-Means", "PCA", "Elbow Method", "Silhouette Score"]
+      description: "End-to-end customer segmentation analysis to group customers based on purchasing behavior and demographics.",
+      technologies: ["Python", "pandas", "NumPy", "Scikit-learn", "K-Means", "PCA"]
     },
     {
       title: "Potential Customers Prediction",
-      description: "Developed a machine learning classification model to predict potential customers from behavioral and demographic data",
-      technologies: ["Python", "EDA", "OneHotEncoder", "Logistic Regression", "Decision Trees", "Random Forests", "Gradient Boosting"]
+      description: "ML classification model to predict potential customers from behavioral and demographic data.",
+      technologies: ["Python", "Logistic Regression", "Decision Trees", "Random Forests", "Gradient Boosting"]
     },
     {
-      title: "Large Data Processing and Graphing Project",
-      description: "Built a data processing tool using Python and OOP (polymorphism, inheritance, abstraction), processed 500,230 dataset, created graphs with multiple libraries",
+      title: "Large Data Processing & Graphing",
+      description: "Data processing tool using Python OOP principles; processed 500,230 row dataset and created graphs.",
       technologies: ["Python", "OOP", "Data Manipulation", "Graphing Libraries"]
     },
     {
       title: "Digital Resume Website",
-      description: "Designed and built a basic resume website using HTML, CSS, and JavaScript",
+      description: "Designed and built a basic resume website from scratch.",
       technologies: ["HTML", "CSS", "JavaScript"]
     }
   ];
 
   const skills = {
-    "Technical Skills": [
-      "Python (OOP, file handling)",
-      "C#",
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Excel (data analysis)",
-      "Raspberry Pi programming",
-      "Unity"
-    ],
-    "Programming Languages": [
-      "Python",
-      "C",
-      "C#",
-      "Java",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "React"
-    ],
-    "Data Science & ML": [
-      "pandas",
-      "NumPy",
-      "Scikit-learn",
-      "Pytorch",
-      "K-Means clustering",
-      "PCA",
-      "Logistic Regression",
-      "Decision Trees",
-      "Random Forests"
-    ],
-    "Communication Skills": [
-      "Technical presentations",
-      "Team collaboration",
-      "Dataset analysis & presentation",
-      "Fluent in English/Hindi/Gujarati",
-      "Basic German"
-    ]
+    "Languages": ["Python", "C", "C#", "Java", "JavaScript", "HTML", "CSS", "React"],
+    "Data Science & ML": ["pandas", "NumPy", "Scikit-learn", "PyTorch", "K-Means", "PCA", "Logistic Regression", "Random Forests"],
+    "Tools & Platforms": ["Git", "Unity", "Raspberry Pi", "Excel"],
+    "Communication": ["Technical Presentations", "Team Collaboration", "English / Hindi / Gujarati", "Basic German"],
   };
 
+  const sectionTitle = (label) => (
+    <div style={{ marginBottom: '1.5rem' }}>
+      <p className="section-label">{label}</p>
+      <hr style={{ border: 'none', borderTop: '1px solid rgba(56,189,248,0.12)', marginTop: '0.5rem' }} />
+    </div>
+  );
+
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-6xl mx-auto px-4">
+    <div style={{ minHeight: '100vh', background: '#080d1a', padding: '3rem 1.5rem' }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2 text-gray-900">Bhagya Patel</h1>
-          <p className="text-xl text-gray-700 mb-4">Software Engineering Student</p>
-          <div className="flex flex-wrap justify-center gap-4 text-gray-600 mb-6">
-            <a href="mailto:bhagyapatel000@gmail.com" className="hover:text-blue-600">
-              📧 bhagyapatel000@gmail.com
+        <div style={{ marginBottom: '3.5rem' }}>
+          <h1 style={{
+            fontSize: 'clamp(2rem, 5vw, 3rem)',
+            fontWeight: 800,
+            color: '#e2e8f0',
+            letterSpacing: '-0.02em',
+            marginBottom: '0.25rem',
+          }}>
+            Bhagya Patel
+          </h1>
+          <p style={{ color: '#38bdf8', fontSize: '0.95rem', fontFamily: "'JetBrains Mono', monospace", marginBottom: '1rem' }}>
+            Software Engineering Student
+          </p>
+          <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap' }}>
+            <a href="mailto:bhagyapatel000@gmail.com" style={{ color: '#64748b', fontSize: '0.825rem', textDecoration: 'none', fontFamily: "'JetBrains Mono', monospace" }}>
+              bhagyapatel000@gmail.com
             </a>
-          </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a 
-              href="https://www.linkedin.com/in/bhagyapatel05" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
-            >
-              LinkedIn
+            <a href="https://www.linkedin.com/in/bhagya-patel05/" target="_blank" rel="noopener noreferrer" style={{ color: '#38bdf8', fontSize: '0.825rem', textDecoration: 'none', fontFamily: "'JetBrains Mono', monospace" }}>
+              LinkedIn ↗
             </a>
-            <a 
-              href="https://github.com/BhagyaP27" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
-            >
-              GitHub
+            <a href="https://github.com/BhagyaP27" target="_blank" rel="noopener noreferrer" style={{ color: '#38bdf8', fontSize: '0.825rem', textDecoration: 'none', fontFamily: "'JetBrains Mono', monospace" }}>
+              GitHub ↗
             </a>
           </div>
         </div>
 
         {/* Education */}
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-gray-900 border-b-2 border-blue-600 pb-2">
-            Education
-          </h2>
-          {education.map((edu, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md p-6">
-              <div className="flex justify-between items-start flex-wrap gap-2">
+        <section style={{ marginBottom: '3rem' }}>
+          {sectionTitle('Education')}
+          {education.map((edu, i) => (
+            <div key={i} className="card-glass" style={{ padding: '1.5rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem' }}>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">{edu.degree}</h3>
-                  <p className="text-blue-600 font-semibold">{edu.school}</p>
+                  <h3 style={{ color: '#e2e8f0', fontWeight: 700, fontSize: '0.975rem', marginBottom: '0.25rem' }}>{edu.degree}</h3>
+                  <p style={{ color: '#38bdf8', fontSize: '0.875rem', fontFamily: "'JetBrains Mono', monospace" }}>{edu.school}</p>
                 </div>
-                <div className="text-right">
-                  <p className="text-gray-700 font-semibold">{edu.location}</p>
-                  <p className="text-gray-500">{edu.year}</p>
+                <div style={{ textAlign: 'right' }}>
+                  <p style={{ color: '#64748b', fontSize: '0.8rem', fontFamily: "'JetBrains Mono', monospace" }}>{edu.location}</p>
+                  <p style={{ color: '#475569', fontSize: '0.8rem', fontFamily: "'JetBrains Mono', monospace" }}>{edu.year}</p>
                 </div>
               </div>
-              <p className="text-gray-600 mt-2">{edu.gpa}</p>
             </div>
           ))}
         </section>
 
         {/* Skills */}
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-gray-900 border-b-2 border-blue-600 pb-2">
-            Skills
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {Object.entries(skills).map(([category, skillList]) => (
-              <div key={category} className="bg-white rounded-lg shadow-md p-6">
-                <h3 className="text-xl font-bold mb-4 text-blue-600">{category}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {skillList.map((skill, idx) => (
-                    <span 
-                      key={idx}
-                      className="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm"
-                    >
-                      {skill}
-                    </span>
+        <section style={{ marginBottom: '3rem' }}>
+          {sectionTitle('Skills')}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1rem' }}>
+            {Object.entries(skills).map(([cat, list]) => (
+              <div key={cat} className="card-glass" style={{ padding: '1.25rem' }}>
+                <p style={{ color: '#38bdf8', fontSize: '0.75rem', fontFamily: "'JetBrains Mono', monospace", letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
+                  {cat}
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
+                  {list.map((s, i) => (
+                    <span key={i} className="tag-pill">{s}</span>
                   ))}
                 </div>
               </div>
@@ -188,49 +150,42 @@ function Resume() {
         </section>
 
         {/* Experience */}
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-gray-900 border-b-2 border-blue-600 pb-2">
-            Work Experience
-          </h2>
-          {experience.map((exp, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md p-6 mb-4">
-              <div className="flex justify-between items-start flex-wrap gap-2 mb-3">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">{exp.title}</h3>
-                  <p className="text-blue-600 font-semibold">{exp.company}</p>
+        <section style={{ marginBottom: '3rem' }}>
+          {sectionTitle('Work Experience')}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            {experience.map((exp, i) => (
+              <div key={i} className="card-glass" style={{ padding: '1.5rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
+                  <div>
+                    <h3 style={{ color: '#e2e8f0', fontWeight: 700, fontSize: '0.975rem', marginBottom: '0.2rem' }}>{exp.title}</h3>
+                    <p style={{ color: '#38bdf8', fontSize: '0.825rem', fontFamily: "'JetBrains Mono', monospace" }}>{exp.company}</p>
+                  </div>
+                  <div style={{ textAlign: 'right' }}>
+                    <p style={{ color: '#64748b', fontSize: '0.8rem', fontFamily: "'JetBrains Mono', monospace" }}>{exp.location}</p>
+                    <p style={{ color: '#475569', fontSize: '0.8rem', fontFamily: "'JetBrains Mono', monospace" }}>{exp.period}</p>
+                  </div>
                 </div>
-                <div className="text-right">
-                  <p className="text-gray-700 font-semibold">{exp.location}</p>
-                  <p className="text-gray-500">{exp.period}</p>
-                </div>
+                <ul style={{ paddingLeft: '1.25rem', margin: 0 }}>
+                  {exp.responsibilities.map((r, j) => (
+                    <li key={j} style={{ color: '#64748b', fontSize: '0.875rem', lineHeight: 1.7, marginBottom: '0.25rem' }}>{r}</li>
+                  ))}
+                </ul>
               </div>
-              <ul className="list-disc list-inside space-y-2">
-                {exp.responsibilities.map((resp, idx) => (
-                  <li key={idx} className="text-gray-700">{resp}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            ))}
+          </div>
         </section>
 
         {/* Projects */}
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-gray-900 border-b-2 border-blue-600 pb-2">
-            Applied Projects
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {projects.map((project, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition">
-                <h3 className="text-xl font-bold mb-3 text-gray-900">{project.title}</h3>
-                <p className="text-gray-700 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, idx) => (
-                    <span 
-                      key={idx}
-                      className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full"
-                    >
-                      {tech}
-                    </span>
+        <section style={{ marginBottom: '3rem' }}>
+          {sectionTitle('Applied Projects')}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1rem' }}>
+            {projects.map((p, i) => (
+              <div key={i} className="card-glass" style={{ padding: '1.25rem' }}>
+                <h3 style={{ color: '#e2e8f0', fontWeight: 700, fontSize: '0.9rem', marginBottom: '0.5rem' }}>{p.title}</h3>
+                <p style={{ color: '#64748b', fontSize: '0.825rem', lineHeight: 1.6, marginBottom: '0.75rem' }}>{p.description}</p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
+                  {p.technologies.map((t, j) => (
+                    <span key={j} className="tag-pill">{t}</span>
                   ))}
                 </div>
               </div>
@@ -238,15 +193,25 @@ function Resume() {
           </div>
         </section>
 
-        {/* Download Button */}
-        <div className="text-center">
-          <a 
-            href="#" 
-            className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition shadow-lg font-semibold"
-          >
-            Download PDF Resume
+        {/* Download */}
+        <div style={{ textAlign: 'center' }}>
+          <a href="#" style={{
+            display: 'inline-block',
+            background: 'transparent',
+            color: '#38bdf8',
+            padding: '0.65rem 2rem',
+            borderRadius: '8px',
+            fontWeight: 600,
+            fontSize: '0.875rem',
+            textDecoration: 'none',
+            border: '1px solid rgba(56,189,248,0.35)',
+            fontFamily: "'JetBrains Mono', monospace",
+            letterSpacing: '0.05em',
+          }}>
+            Download PDF Resume ↓
           </a>
         </div>
+
       </div>
     </div>
   );

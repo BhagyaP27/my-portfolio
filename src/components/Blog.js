@@ -7,53 +7,87 @@ function Blog() {
 
   if (selectedPost) {
     return (
-      <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-3xl mx-auto px-4">
-          <button 
+      <div style={{ minHeight: '100vh', background: '#080d1a', padding: '3rem 1.5rem' }}>
+        <div style={{ maxWidth: '780px', margin: '0 auto' }}>
+          <button
             onClick={() => setSelectedPost(null)}
-            className="mb-6 text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-2 transition-colors"
+            style={{
+              background: 'none',
+              border: 'none',
+              color: '#38bdf8',
+              fontSize: '0.875rem',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              marginBottom: '2rem',
+              fontFamily: "'JetBrains Mono', monospace",
+              padding: 0,
+            }}
           >
-            ← Back to all posts
+            ← Back to blog
           </button>
-          
-          <article className="bg-white rounded-2xl shadow-md overflow-hidden p-6 md:p-10">
-            {/* Full Post Cover Image */}
+
+          <article className="card-glass" style={{ padding: '2.5rem' }}>
             {selectedPost.coverImage && (
-              <img 
-                src={selectedPost.coverImage} 
-                alt={selectedPost.title} 
-                className="w-full h-64 md:h-96 object-cover rounded-xl mb-8"
+              <img
+                src={selectedPost.coverImage}
+                alt={selectedPost.title}
+                style={{
+                  width: '100%',
+                  height: '280px',
+                  objectFit: 'cover',
+                  borderRadius: '8px',
+                  marginBottom: '2rem',
+                  border: '1px solid rgba(56,189,248,0.1)',
+                }}
               />
             )}
 
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900 tracking-tight">
+            <p style={{
+              color: '#475569',
+              fontSize: '0.8rem',
+              fontFamily: "'JetBrains Mono', monospace",
+              marginBottom: '0.75rem',
+            }}>
+              {selectedPost.date}
+            </p>
+
+            <h1 style={{
+              fontSize: '1.8rem',
+              fontWeight: 700,
+              color: '#e2e8f0',
+              marginBottom: '1.25rem',
+              lineHeight: 1.3,
+              letterSpacing: '-0.02em',
+            }}>
               {selectedPost.title}
             </h1>
-            <p className="text-gray-500 mb-6 text-sm">{selectedPost.date}</p>
-            
-            <div className="flex flex-wrap gap-2 mb-8">
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '2rem' }}>
               {selectedPost.tags.map((tag) => (
-                <span 
-                  key={tag}
-                  className="bg-blue-50 text-blue-700 text-xs font-medium px-3 py-1 rounded-full border border-blue-100"
-                >
-                  {tag}
-                </span>
+                <span key={tag} className="tag-pill">{tag}</span>
               ))}
             </div>
-            
-            {/* Markdown Body Content with Custom Tailwind Styling */}
-            <div className="text-gray-800 leading-relaxed space-y-4">
+
+            <div style={{ color: '#94a3b8', lineHeight: 1.8 }}>
               <ReactMarkdown
                 components={{
-                  h3: ({ node, ...props }) => <h3 className="text-xl font-bold text-gray-900 mt-6 mb-2" {...props} />,
-                  p: ({ node, ...props }) => <p className="text-gray-700 mb-4" {...props} />,
-                  ul: ({ node, ...props }) => <ul className="list-disc list-inside pl-4 mb-4 space-y-1 text-gray-700" {...props} />,
-                  ol: ({ node, ...props }) => <ol className="list-decimal list-inside pl-4 mb-4 space-y-1 text-gray-700" {...props} />,
-                  li: ({ node, ...props }) => <li className="mb-1" {...props} />,
-                  strong: ({ node, ...props }) => <strong className="font-semibold text-gray-900" {...props} />,
+                  h3: ({ node, ...props }) => <h3 style={{ color: '#e2e8f0', fontWeight: 700, marginTop: '1.75rem', marginBottom: '0.5rem', fontSize: '1.15rem' }} {...props} />,
+                  p: ({ node, ...props }) => <p style={{ color: '#94a3b8', marginBottom: '1rem', lineHeight: 1.8 }} {...props} />,
+                  ul: ({ node, ...props }) => <ul style={{ paddingLeft: '1.5rem', marginBottom: '1rem', color: '#94a3b8' }} {...props} />,
+                  ol: ({ node, ...props }) => <ol style={{ paddingLeft: '1.5rem', marginBottom: '1rem', color: '#94a3b8' }} {...props} />,
+                  li: ({ node, ...props }) => <li style={{ marginBottom: '0.4rem' }} {...props} />,
+                  strong: ({ node, ...props }) => <strong style={{ color: '#e2e8f0', fontWeight: 600 }} {...props} />,
                   code: ({ node, inline, ...props }) => (
-                    <code className="bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-sm font-mono" {...props} />
+                    <code style={{
+                      background: '#1e293b',
+                      color: '#7dd3fc',
+                      padding: '2px 6px',
+                      borderRadius: '4px',
+                      fontSize: '0.85em',
+                      fontFamily: "'JetBrains Mono', monospace",
+                    }} {...props} />
                   )
                 }}
               >
@@ -67,62 +101,89 @@ function Blog() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-7xl mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-3 text-gray-900 tracking-tight">
+    <div style={{ minHeight: '100vh', background: '#080d1a', padding: '3rem 1.5rem' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <p className="section-label">Writing</p>
+        <h1 style={{
+          fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
+          fontWeight: 800,
+          color: '#e2e8f0',
+          marginBottom: '0.5rem',
+          letterSpacing: '-0.02em',
+        }}>
           Blog
         </h1>
-        <p className="text-center text-gray-600 mb-12 text-lg max-w-md mx-auto">
-          Deep dives into AI engineering, vector performance, and architecture.
+        <p style={{ color: '#64748b', marginBottom: '3rem', fontSize: '0.95rem' }}>
+          Deep dives into AI engineering, vector search, and architecture.
         </p>
 
-        {/* Blog Grid Display */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.25rem' }}>
           {blogPosts.map((post) => (
-            <div 
+            <div
               key={post.id}
-              className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col group"
+              className="card-glass"
+              style={{ cursor: 'pointer', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
               onClick={() => setSelectedPost(post)}
             >
-              {/* Card Cover Image */}
-              <div className="relative overflow-hidden h-48 bg-gray-200">
+              <div style={{
+                height: '160px',
+                background: 'linear-gradient(135deg, #0f1629 0%, #1e293b 100%)',
+                overflow: 'hidden',
+                borderBottom: '1px solid rgba(56,189,248,0.08)',
+              }}>
                 {post.coverImage ? (
-                  <img 
-                    src={post.coverImage} 
-                    alt={post.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  <img
+                    src={post.coverImage}
+                    alt={post.title}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85 }}
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center text-gray-400 font-mono text-xs">
-                    No preview available
+                  <div style={{
+                    width: '100%', height: '100%',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: '#334155', fontFamily: "'JetBrains Mono', monospace", fontSize: '0.75rem',
+                  }}>
+                    no preview
                   </div>
                 )}
               </div>
 
-              {/* Card Text Content */}
-              <div className="p-6 flex flex-col flex-grow">
-                <p className="text-gray-400 text-xs font-medium mb-2">{post.date}</p>
-                <h2 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors line-clamp-2">
+              <div style={{ padding: '1.25rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                <p style={{
+                  color: '#475569',
+                  fontSize: '0.75rem',
+                  fontFamily: "'JetBrains Mono', monospace",
+                  marginBottom: '0.5rem',
+                }}>
+                  {post.date}
+                </p>
+                <h2 style={{
+                  fontSize: '0.975rem',
+                  fontWeight: 700,
+                  color: '#e2e8f0',
+                  marginBottom: '0.5rem',
+                  lineHeight: 1.4,
+                }}>
                   {post.title}
                 </h2>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+                <p style={{
+                  color: '#64748b',
+                  fontSize: '0.825rem',
+                  lineHeight: 1.6,
+                  marginBottom: '1rem',
+                  flexGrow: 1,
+                  display: '-webkit-box',
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: 'vertical',
+                  overflow: 'hidden',
+                }}>
                   {post.excerpt}
                 </p>
-                
-                <div className="flex flex-wrap gap-1.5 mb-5">
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem' }}>
                   {post.tags.map((tag) => (
-                    <span 
-                      key={tag}
-                      className="bg-gray-100 text-gray-600 text-xs px-2.5 py-0.5 rounded-full"
-                    >
-                      {tag}
-                    </span>
+                    <span key={tag} className="tag-pill">{tag}</span>
                   ))}
                 </div>
-                
-                <span className="text-blue-600 group-hover:text-blue-800 font-semibold text-sm inline-flex items-center gap-1">
-                  Read article <span className="transform group-hover:translate-x-1 transition-transform">→</span>
-                </span>
               </div>
             </div>
           ))}

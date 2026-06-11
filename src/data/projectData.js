@@ -74,6 +74,7 @@ Performed a full customer segmentation pipeline to identify distinct customer pe
 Identified 4 distinct customer segments ranging from high-value loyalists to price-sensitive occasional buyers, enabling targeted campaign strategies for each group.`,
         technologies: ["Python", "pandas", "NumPy", "Scikit-learn", "K-Means", "PCA", "Matplotlib"],
         image: "",
+        github: "https://github.com/BhagyaP27",
         demo: ""
     },
     {
@@ -92,6 +93,70 @@ Built a binary classification pipeline to predict customer conversion probabilit
 Gradient Boosting achieved the highest ROC-AUC, outperforming the Logistic Regression baseline by a significant margin while maintaining interpretable feature importances for business stakeholders.`,
         technologies: ["Python", "Scikit-learn", "Logistic Regression", "Random Forests", "Gradient Boosting", "pandas"],
         image: "",
+        github: "https://github.com/BhagyaP27",
+        demo: ""
+    },
+    {
+        id: 5,
+        title: "MyTunes+ Music Database",
+        description: "A relational music collection database with a custom Flask web interface. Demonstrates complex SQL queries across a 10-table normalized schema — artist catalogues, playlist durations, many-to-many genre relationships, and track credits.",
+        content: `### Overview
+MyTunes+ is a fully normalized SQLite database modelling a personal music collection, wrapped in a Flask web app for interactive query demonstration. Built for COMP 3005 (Database Systems) at Carleton University.
+
+### Schema Design
+The database spans **10 tables** in 3NF:
+
+* \`ARTIST\`, \`ALBUM\`, \`TRACK\` — core catalogue hierarchy
+* \`TRACK_ARTIST\` — many-to-many between tracks and artists, with a \`role\` attribute (primary, featuring, composer)
+* \`GENRE\`, \`ALBUM_GENRE\` — many-to-many genre tagging
+* \`PLAYLIST\`, \`PLAYLIST_TRACK\` — ordered playlist membership with position tracking
+* \`USER\`, \`USER_FOLLOWS\` — user accounts and artist follow relationships
+
+### Key SQL Queries
+* **Artist catalogue:** Multi-join across \`TRACK_ARTIST → TRACK → ALBUM\` with \`GROUP_CONCAT\` for collaborator credits and role aggregation.
+* **Playlist duration report:** \`COALESCE(SUM(duration_sec), 0)\` with ordered \`PLAYLIST_TRACK\` join — answers "how long is my playlist?" in one query.
+* **Genre drill-down:** Two-hop many-to-many join via \`ALBUM_GENRE → GENRE\` filtered by \`genre_id\`, demonstrating N:N relationship traversal.
+* **Top artists by credits:** \`LEFT JOIN TRACK_ARTIST\` with \`COUNT\` and \`GROUP BY\` to rank artists by primary track credits.
+
+### Architecture
+* **Backend:** Flask 3.x with \`sqlite3.Row\` for dict-style row access and \`PRAGMA foreign_keys = ON\` enforced on every connection.
+* **Templating:** Jinja2 with a shared \`base.html\` layout, \`format_duration\` context processor converting raw seconds to human-readable time.
+* **Seed script:** \`setup_db.py\` recreates and seeds the entire database from Python tuples — reproducible from scratch in one command.
+
+### Technical Highlights
+Foreign key constraints are enforced at the SQLite layer, not just application logic. The \`PLAYLIST_TRACK\` table enforces both \`UNIQUE (playlist_id, position)\` and \`PRIMARY KEY (playlist_id, track_id)\` — preventing duplicate positions and duplicate track entries independently.`,
+        technologies: ["Python", "Flask", "SQLite", "SQL", "Jinja2", "HTML", "CSS"],
+        image: "",
+        github: "https://github.com/BhagyaP27",
+        demo: ""
+    },
+    {
+        id: 6,
+        title: "My Journal — Desktop App",
+        description: "A private, offline-first journal and task manager built with React and Electron. All data stays on your machine — no accounts, no servers, no tracking.",
+        content: `### Overview
+A cross-platform desktop application for journaling and task management. Built with React for the UI and Electron for native desktop integration. Data is persisted to the local filesystem via Electron's IPC bridge — no cloud, no telemetry.
+
+### Architecture
+The app uses a clean two-process Electron architecture:
+
+* **Main process** (\`electron/main.js\`): Manages the \`BrowserWindow\`, handles file I/O through a \`store.json\` in the OS user data directory, and exposes a typed IPC API (\`store-get\`, \`store-set\`, \`store-delete\`, \`store-has\`).
+* **Renderer process** (React): Communicates with the main process through a \`contextBridge\` preload — \`window.electronStore\` — keeping \`nodeIntegration\` disabled for security.
+* **Storage abstraction:** A unified \`storage\` helper detects whether \`window.electronStore\` is present and falls back to \`localStorage\` automatically, so the app runs identically in a browser during development.
+
+### Features
+* **Journal** — timestamped entries with title and freeform content, edit/delete, sorted chronologically.
+* **Tasks** — priority levels (High / Medium / Low), optional due dates, completion toggle, full edit/delete lifecycle.
+* **Offline-first** — all data written to \`%APPDATA%/my-journal-app/store.json\` on Windows; no network requests.
+
+### Build & Distribution
+Packaged with \`electron-builder\` targeting NSIS installer and portable \`win-unpacked\` for Windows, \`dmg\` for macOS, and \`AppImage\` for Linux. A multi-stage Docker build also serves the React app via nginx for web deployment.
+
+### Technical Highlights
+The \`contextBridge\` + \`ipcMain.handle\` pattern provides a fully async, promise-based storage API to the renderer without exposing Node.js internals — a security best practice over the legacy \`nodeIntegration: true\` approach.`,
+        technologies: ["React", "Electron", "JavaScript", "Tailwind CSS", "Node.js", "electron-builder", "Docker"],
+        image: "",
+        github: "https://github.com/BhagyaP27",
         demo: ""
     }
 ];

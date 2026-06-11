@@ -74,7 +74,6 @@ Performed a full customer segmentation pipeline to identify distinct customer pe
 Identified 4 distinct customer segments ranging from high-value loyalists to price-sensitive occasional buyers, enabling targeted campaign strategies for each group.`,
         technologies: ["Python", "pandas", "NumPy", "Scikit-learn", "K-Means", "PCA", "Matplotlib"],
         image: "",
-        github: "https://github.com/BhagyaP27",
         demo: ""
     },
     {
@@ -93,7 +92,6 @@ Built a binary classification pipeline to predict customer conversion probabilit
 Gradient Boosting achieved the highest ROC-AUC, outperforming the Logistic Regression baseline by a significant margin while maintaining interpretable feature importances for business stakeholders.`,
         technologies: ["Python", "Scikit-learn", "Logistic Regression", "Random Forests", "Gradient Boosting", "pandas"],
         image: "",
-        github: "https://github.com/BhagyaP27",
         demo: ""
     }
 ];

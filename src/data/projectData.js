@@ -14,7 +14,7 @@ This framework acts as an intelligent layer between natural language and complex
 ### Technical Challenges
 The biggest obstacle was resolving token ambiguity when handling dense regular expressions and inline bash piping. Moving to a more granular tokenization strategy helped stabilize parameter mapping significantly.`,
         technologies: ["Python", "PyTorch", "Bash", "NLP"],
-        image: "/images/projects/bash-agent-pytorch.png",
+        
         github: "https://github.com/BhagyaP27/bash-agent-pytorch",
         demo: ""
     },
@@ -53,7 +53,7 @@ Deployed to AWS with a fully automated CI/CD pipeline: frontend on S3 + CloudFro
 ### Eval Results
 A custom faithfulness evaluator (\`eval_rag.py\`) measures RAG vs. bare LLM baseline using word-overlap heuristics. RAG improved answer faithfulness by ~96% on a 5-question benchmark.`,
         technologies: ["Python", "FastAPI", "FAISS", "React", "Vite", "Ollama", "sentence-transformers", "LangChain", "Docker", "AWS ECS", "Terraform"],
-        image: "/images/projects/rag-doc-reader.png",
+       
         github: "https://github.com/BhagyaP27/rag-doc-reader",
         demo: ""
     },
@@ -73,7 +73,7 @@ Performed a full customer segmentation pipeline to identify distinct customer pe
 ### Key Findings
 Identified 4 distinct customer segments ranging from high-value loyalists to price-sensitive occasional buyers, enabling targeted campaign strategies for each group.`,
         technologies: ["Python", "pandas", "NumPy", "Scikit-learn", "K-Means", "PCA", "Matplotlib"],
-        image: "",
+        
         github: "https://github.com/BhagyaP27",
         demo: ""
     },
@@ -92,7 +92,7 @@ Built a binary classification pipeline to predict customer conversion probabilit
 ### Results
 Gradient Boosting achieved the highest ROC-AUC, outperforming the Logistic Regression baseline by a significant margin while maintaining interpretable feature importances for business stakeholders.`,
         technologies: ["Python", "Scikit-learn", "Logistic Regression", "Random Forests", "Gradient Boosting", "pandas"],
-        image: "",
+        
         github: "https://github.com/BhagyaP27",
         demo: ""
     },
@@ -126,7 +126,7 @@ The database spans **10 tables** in 3NF:
 ### Technical Highlights
 Foreign key constraints are enforced at the SQLite layer, not just application logic. The \`PLAYLIST_TRACK\` table enforces both \`UNIQUE (playlist_id, position)\` and \`PRIMARY KEY (playlist_id, track_id)\` — preventing duplicate positions and duplicate track entries independently.`,
         technologies: ["Python", "Flask", "SQLite", "SQL", "Jinja2", "HTML", "CSS"],
-        image: "",
+        
         github: "https://github.com/BhagyaP27",
         demo: ""
     },
@@ -155,7 +155,6 @@ Packaged with \`electron-builder\` targeting NSIS installer and portable \`win-u
 ### Technical Highlights
 The \`contextBridge\` + \`ipcMain.handle\` pattern provides a fully async, promise-based storage API to the renderer without exposing Node.js internals — a security best practice over the legacy \`nodeIntegration: true\` approach.`,
         technologies: ["React", "Electron", "JavaScript", "Tailwind CSS", "Node.js", "electron-builder", "Docker"],
-        image: "",
         github: "https://github.com/BhagyaP27",
         demo: ""
     }

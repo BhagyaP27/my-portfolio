@@ -321,7 +321,11 @@ function Home() {
               fontSize: '5rem',
               boxShadow: '0 0 60px rgba(56,189,248,0.08)',
             }}>
-              👩‍💻
+              <img
+              src="/images/profile.jpg"
+              alt="Bhagya Patel"
+              style={{ width: '100%', height: '100%', objectFit: 'cover'}}
+              />
             </div>
           </div>
         </div>

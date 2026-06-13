@@ -3,10 +3,10 @@ import ReactMarkdown from 'react-markdown';
 import { projects } from '../data/projectData';
 import NotebookViewer from './NotebookViewer';
 
-// Map project id → public notebook URL
+// Map project id  to public notebook URL
 const NOTEBOOK_URLS = {
-  3: '/notebooks/customer_personality_segmentation.ipynb',
-  4: '/notebooks/potential_customers_prediction.ipynb',
+  3: '/notebooks/Customer_Personality_Segmentation.ipynb',
+  4: '/notebooks/Potential_Customers_Prediction.ipynb',
 };
 
 function Projects() {

@@ -314,17 +314,13 @@ function Home() {
               height: '260px',
               borderRadius: '50%',
               border: '2px solid rgba(56,189,248,0.25)',
-              background: 'linear-gradient(135deg, #0f1629 0%, #1e293b 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontSize: '5rem',
-              boxShadow: '0 0 60px rgba(56,189,248,0.08)',
+              overflow: 'hidden',
+              boxShadow: '0 0 60px rgba(56,189,248,0.08)'
             }}>
               <img
               src="/images/profile.jpg"
               alt="Bhagya Patel"
-              style={{ width: '100%', height: '100%', objectFit: 'cover'}}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
               />
             </div>
           </div>
@@ -379,7 +375,7 @@ function Home() {
             <p style={{ color: '#94a3b8', lineHeight: 1.8, fontSize: '1rem', margin: 0 }}>
               I'm a passionate developer with a strong foundation in software engineering and a growing
               interest in AI and machine learning. I love solving complex problems, learning new technologies,
-              and building tools that are both useful and well-crafted. When I'm not coding, I'm trying to learn new technologies, and building a better version of myself.
+              and building tools that are both useful and well-crafted.
             </p>
           </div>
         </section>

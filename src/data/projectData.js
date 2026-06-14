@@ -157,5 +157,49 @@ The \`contextBridge\` + \`ipcMain.handle\` pattern provides a fully async, promi
         technologies: ["React", "Electron", "JavaScript", "Tailwind CSS", "Node.js", "electron-builder", "Docker"],
         github: "https://github.com/BhagyaP27",
         demo: ""
+    },
+    {
+        id: 7,
+        title: "OS Process Scheduler Simulator",
+        description: "A C++ simulation of three OS scheduling algorithms — External Priority (EP), Round Robin (RR), and a hybrid EP+RR — with full PCB lifecycle tracking, memory partition allocation, and I/O interrupt handling.",
+        content: `### Overview
+A systems-level C++ simulator built for SYSC 4001 (Operating Systems) at Carleton University. Models a realistic OS scheduler with three distinct scheduling policies, a fixed memory partition table, and an interrupt-driven I/O subsystem. All state transitions are logged in a formatted execution trace table.
+
+### Scheduling Algorithms Implemented
+
+* **External Priority (EP) — Non-Preemptive:** Processes are ordered by PID (lower PID = higher priority). Once a process starts running, it holds the CPU until it blocks on I/O or terminates. No context switching due to priority changes mid-burst.
+* **Round Robin (RR):** Pure time-sharing with a 100ms quantum. Processes cycle through the ready queue in FIFO order. Preempted processes are re-enqueued at the back, and a returning I/O process is inserted at the front to preserve fairness.
+* **EP + RR Hybrid:** Combines both policies. Higher-priority processes preempt lower-priority ones immediately on arrival. Among equal-priority processes, the 100ms Round Robin quantum enforces fair CPU sharing.
+
+### Architecture
+
+The simulator is built around a \`PCB\` struct tracking PID, size, arrival time, start time, processing time, remaining time, partition number, state, I/O frequency, and I/O duration. A shared header (\`interrupts_student1_student2.hpp\`) provides all OS primitives:
+
+* \`assign_memory()\` / \`free_memory()\` — best-fit allocation across 6 fixed partitions (40, 25, 15, 10, 8, 2 MB)
+* \`sync_queue()\` — propagates PCB state changes back into the job list
+* \`idle_CPU()\` — resets the running slot to a sentinel NOT_ASSIGNED state
+* \`all_process_terminated()\` — loop termination predicate
+
+### I/O Interrupt Handling
+
+Each process carries an \`io_freq\` (burst length before needing I/O) and \`io_duration\` (time blocked). The simulator tracks \`time_since_last_io\` per running process and a vector of \`{PID, completion_time}\` pairs for pending I/O operations. At each tick, completed I/O events are resolved first, moving processes from WAITING back to READY before new arrivals are processed — matching real interrupt priority ordering.
+
+### Memory Management
+
+Six fixed partitions are allocated using a reverse best-fit scan: the smallest partition that fits the process is chosen, preventing fragmentation of large partitions. Partitions are freed on termination and the \`occupied\` field is reset to \`-1\`.
+
+### Output
+
+Each run produces a formatted state-transition table logging every NEW→READY, READY→RUNNING, RUNNING→WAITING, WAITING→READY, and RUNNING→TERMINATED event with its timestamp. Output filenames are auto-derived from the input test case number.
+
+### Concurrency Extension (Part 2)
+
+A parallel TA exam-marking system was built alongside the scheduler to demonstrate POSIX process synchronization:
+* **Part A** (no semaphores): Demonstrates live race conditions — duplicate question marking, lost rubric updates, and concurrent exam loads.
+* **Part B** (with semaphores): Implements a readers-writer pattern for the shared rubric (\`sem_wait\` / \`sem_post\`), per-exam mutexes for question selection, and a dedicated exam-load mutex. All three critical section requirements (mutual exclusion, progress, bounded waiting) are satisfied.
+* **Shared memory** via \`shm_open\` + \`mmap\` with \`fork()\`-based TA processes.`,
+        technologies: ["C++", "POSIX", "Shared Memory", "Semaphores", "OS Scheduling", "Memory Management"],
+        github: "https://github.com/BhagyaP27",
+        demo: ""
     }
 ];
